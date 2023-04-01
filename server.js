@@ -10,15 +10,6 @@ import uploadRouter from './routes/uploadRoutes.js';
 
 dotenv.config();
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log(`connected to ${process.env.MONGODB_URI}`);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-
 const app = express();
 
 app.use(express.json());
@@ -57,3 +48,13 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
+
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log(`connected to ${process.env.MONGODB_URI}`);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
